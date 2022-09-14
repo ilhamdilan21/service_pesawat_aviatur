@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- aviatur.riwayatservice tree view -->
+    <record id="aviatur_riwayatservice_view_tree" model="ir.ui.view">
+        <field name="name">Riwayat Service</field>
+        <field name="model">aviatur.riwayatservice</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="no_nota"/>
+                <field name="name"/>
+                <field name="tgl_masuk"/>
+                <field name="tgl_selesai"/>
+                <field name="jenis_pswt"/>
+                <field name="total_pembayaran"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- aviatur.riwayatservice form view -->
+    <record id="aviatur_riwayatservice_view_form" model="ir.ui.view">
+        <field name="name">Form Riwayat Service</field>
+        <field name="model">aviatur.riwayatservice</field>
+        <field name="arch" type="xml">
+            <form string="Form Riwayat Service">
+                <header>
+                    <button name="action_confirm" type="object" string="Confirm" class="btn btn-primary" states="draft"/>
+                    <button name="action_done" type="object" string="Done" class="btn btn-primary" states="confirm"/>
+                    <button name="action_cancel" type="object" string="Cancel" class="btn btn-warning" states="confirm" confirm="Anda yakin meng-cancel Quotation ini?"/>
+                    <button name="action_draft" type="object" string="Kembali ke Draft" class="btn btn-danger" states="cancelled" confirm="Anda yakin untuk mengedit Quotation ini?"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirm,done"/>
+                </header>
+                <sheet>
+                    <field name="gambar_pswt" widget="image" class="oe_avatar"/>   
+                    <group nama='nota' string='Nota'>
+                        <group>
+                            <field name="no_nota"/>
+                            <field name="name"/>  
+                            <field name="jenis_pswt"/>   
+                                      
+                        </group>
+
+                        <group>
+                            <field name="tgl_masuk"/>
+                            <field name="tgl_selesai"/>
+                            <field name="total_pembayaran"/>     
+                        </group>
+
+                    </group>
+
+                    <group name="barang" string="Barang">
+                        <field name="detailonderdil_ids">
+                            <tree editable='bottom'>
+                                <field name="barang_id"/>
+                                <field name="harga_satuan_barang"/>
+                                <field name="qty"/>
+                                <field name="subtotal" sum='total'/>
+                            </tree>
+                        </field>
+                    </group>
+
+                    <group name="jasa" string="Jasa">
+                        <field name="detailjasa_ids">
+                            <tree editable='bottom'>
+                                <field name="pelayanan_id"/>
+                                <field name="harga_pelayanan"/>
+                                <field name="subtotal" sum='total'/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- aviatur.riwayatservice search view -->
+    <record id="aviatur_riwayatservice_view_search" model="ir.ui.view">
+        <field name="name">aviatur.riwayatservice.view.search</field>
+        <field name="model">aviatur.riwayatservice</field>
+        <field name="arch" type="xml">
+            <search string="Search Description">
+                <filter name="draft" string="Draft" domain="[('state', '=', 'draft')]"/>
+                <filter name="confirm" string="Confirm" domain="[('state', '=', 'confirm')]"/>
+                <filter name="done" string="Done" domain="[('state', '=', 'done')]"/>
+                <filter name="cancelled" string="Cancelled" domain="[('state', '=', 'cancelled')]"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- aviatur.riwayatservice action window -->
+    <record id="aviatur_riwayatservice_action" model="ir.actions.act_window">
+        <field name="name">Riwayat Service</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">aviatur.riwayatservice</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="aviatur_riwayatservice_menu_act" 
+            name="Riwayat Service" 
+            parent="aviatur_menu_riwayatservice_categ" 
+            action="aviatur_riwayatservice_action" sequence="10"/>
+
+</odoo>

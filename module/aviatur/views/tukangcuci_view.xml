@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    
+    <!-- aviatur.penyuci inherit tree view -->
+    <record id="aviatur_penyuci_tree_view_inherit" model="ir.ui.view">
+        <field name="name">Tukang Cuci Pesawat</field>
+        <field name="model">aviatur.penyuci</field>
+        <field name="mode">primary</field>
+        <field name="inherit_id" ref="aviatur_pegawai_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="before">
+                <field name="id_penyuci"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- aviatur.penyuci inherit form view -->
+    <record id="aviatur_penyuci_form_view_inherit" model="ir.ui.view">
+        <field name="name">Form Tukang Cuci Pesawat</field>
+        <field name="model">aviatur.penyuci</field>
+        <field name="mode">primary</field>
+        <field name="inherit_id" ref="aviatur_pegawai_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form//sheet//group[1]" position="before">
+                <group name="id" string="ID Tukang Cuci">
+                    <field name="id_penyuci"/>    
+                </group>
+            </xpath>            
+        </field>
+    </record>
+
+    <!-- aviatur.penyuci search view -->
+    <record id="aviatur_penyuci_view_search" model="ir.ui.view">
+        <field name="name">aviatur.penyuci.view.search</field>
+        <field name="model">aviatur.penyuci</field>
+        <field name="arch" type="xml">
+            <search string="Search Description">
+                <filter name="gender" string="Gender" context="{'group_by': 'gender'}"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- aviatur.penyuci action window -->
+    <record id="aviatur_penyuci_action" model="ir.actions.act_window">
+        <field name="name">Tukang Cuci</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">aviatur.penyuci</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="aviatur_penyuci_menu_act" 
+            name="Tukang Cuci" 
+            parent="aviatur_menu_teknisi_categ" 
+            action="aviatur_penyuci_action" sequence="30"/>
+
+</odoo>

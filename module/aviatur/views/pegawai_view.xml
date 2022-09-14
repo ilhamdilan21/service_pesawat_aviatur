@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- aviatur.pegawai tree view -->
+    <record id="aviatur_pegawai_view_tree" model="ir.ui.view">
+        <field name="name">aviatur.pegawai.view.tree</field>
+        <field name="model">aviatur.pegawai</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="alamat"/>
+                <field name="tgl_lahir"/>
+                <field name="gender"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- aviatur.pegawai form view -->
+    <record id="aviatur_pegawai_view_form" model="ir.ui.view">
+        <field name="name">aviatur.pegawai.view.form</field>
+        <field name="model">aviatur.pegawai</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <field name="gambar" widget="image" class="oe_avatar"/>
+                    <group name="identitas" string="Identitas">        
+                        <field name="name"/>
+                        <field name="alamat"/>
+                        <field name="tgl_lahir"/>
+                        <field name="gender"/>  
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

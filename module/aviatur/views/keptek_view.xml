@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- aviatur.keptek inherit tree view -->
+    <record id="aviatur_keptek_tree_view_inherit" model="ir.ui.view">
+        <field name="name">Kepala Teknisi</field>
+        <field name="model">aviatur.keptek</field>
+        <field name="mode">primary</field>
+        <field name="inherit_id" ref="aviatur_pegawai_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="before">
+                <field name="id_keptek"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- aviatur.keptek inherit form view -->
+    <record id="aviatur_keptek_form_view_inherit" model="ir.ui.view">
+        <field name="name">Form Kepala Teknisi</field>
+        <field name="model">aviatur.keptek</field>
+        <field name="mode">primary</field>
+        <field name="inherit_id" ref="aviatur_pegawai_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form//sheet//group[1]" position="before">
+                <group name="id" string="ID Kepala Teknisi">
+                    <field name="id_keptek"/>    
+                </group>
+            </xpath>            
+        </field>
+    </record>
+
+    <record id="aviatur_keptek_view_search" model="ir.ui.view">
+        <field name="name">aviatur.keptek.view.search</field>
+        <field name="model">aviatur.keptek</field>
+        <field name="arch" type="xml">
+            <search string="Search Description">
+                <filter name="gender" string="Gender" context="{'group_by': 'gender'}"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- aviatur.keptek action window -->
+    <record id="aviaturo_keptek_action" model="ir.actions.act_window">
+        <field name="name">Kepala Teknisi</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">aviatur.keptek</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="aviatur_keptek_menu_act" 
+            name="Kepala Teknisi" 
+            parent="aviatur_menu_teknisi_categ" 
+            action="aviaturo_keptek_action" sequence="10"/>
+
+</odoo>

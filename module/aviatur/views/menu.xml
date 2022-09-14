@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- This Menu Item will appear in the Upper bar, that's why It needs NO parent or action -->
+    <menuitem id="aviatur_menu_root" 
+            name="Aviation Care" sequence="10"/>
+
+    <!-- This Menu Item Must have a parent -->
+    <menuitem id="aviatur_menu_service_categ" 
+            name="Service" 
+            parent="aviatur_menu_root" sequence="10"/>
+
+    <!-- This Menu Item Must have a parent -->
+    <menuitem id="aviatur_menu_teknisi_categ" 
+            name="Pegawai" 
+            parent="aviatur_menu_root" sequence="20"/>
+
+        <!-- This Menu Item Must have a parent -->
+        <menuitem id="aviatur_menu_riwayatservice_categ" 
+                name="Riwayat Service" 
+                parent="aviatur_menu_root" sequence="30"/>
+
+</odoo>

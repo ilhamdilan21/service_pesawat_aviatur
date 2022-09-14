@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- aviatur.newteknisi form view -->
+    <record id="model_name_view_form" model="ir.ui.view">
+        <field name="name">aviatur.newteknisi.view.form</field>
+        <field name="model">aviatur.newteknisi</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <field name="gambar" widget="image" class="oe_avatar"/>
+                    <group>
+                        <field name="id_teknisi"/>
+                        <field name="status"/>
+                        <field name="name"/>
+                        <field name="alamat"/>
+                        <field name="tgl_lahir"/>
+                        <field name="gender"/>                          
+                    </group>
+                    <footer>
+                        <button name='button_newteknisi' type='object' string='Submit' class='btn btn-primary'/>
+                        <button name='Cancel' special='cancel' class='btn btn-danger' string='Cancel'/>                    
+                    </footer>                    
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- aviatur.newteknisi action window -->
+    <record id="aviatur_newteknisi_action_wizzard" model="ir.actions.act_window">
+        <field name="name">New Teknisi</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">aviatur.newteknisi</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="model_name_view_form"/>
+        <field name="target">new</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="newteknisi_menu_act" 
+        name="New Teknisi" 
+        parent="aviatur_menu_root" 
+        action="aviatur_newteknisi_action_wizzard" 
+        sequence="40"/>
+
+</odoo>

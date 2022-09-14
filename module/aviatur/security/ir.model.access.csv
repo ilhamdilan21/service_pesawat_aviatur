@@ -1,0 +1,13 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_aviatur_barang,aviatur.aviatur.barang,model_aviatur_barang,,1,1,1,1
+access_aviatur_kegiatan,aviatur.aviatur.kegiatan,model_aviatur_kegiatan,,1,1,1,1
+access_aviatur_pelayanan,aviatur.aviatur.pelayanan,model_aviatur_pelayanan,,1,1,1,1
+access_aviatur_pegawai,aviatur.aviatur.pegawai,model_aviatur_pegawai,,1,1,1,1
+access_aviatur_keptek,aviatur.aviatur.keptek,model_aviatur_keptek,,1,1,1,1
+access_aviatur_teknisi,aviatur.aviatur.teknisi,model_aviatur_teknisi,,1,1,1,1
+access_aviatur_penyuci,aviatur.aviatur.penyuci,model_aviatur_penyuci,,1,1,1,1
+access_aviatur_kasir,aviatur.aviatur.kasir,model_aviatur_kasir,,1,1,1,1
+access_aviatur_riwayatservice,aviatur.aviatur.riwayatservice,model_aviatur_riwayatservice,,1,1,1,1
+access_aviatur_onderdil,aviatur.aviatur.onderdil,model_aviatur_onderdil,,1,1,1,1
+access_aviatur_jasa,aviatur.aviatur.jasa,model_aviatur_jasa,,1,1,1,1
+access_aviatur_newteknisi,aviatur.aviatur.newteknisi,model_aviatur_newteknisi,,1,1,1,1

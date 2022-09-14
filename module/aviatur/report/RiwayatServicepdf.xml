@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_riwayatservice_pdf">
+        <t t-call="web.html_container">
+            <t t-call="web.internal_layout">
+                <div class="page">
+                    <h1><b>Nota Service</b></h1>
+                    <t t-foreach="docs" t-as="d">
+                        <div class="row">
+                            <div class="col-4">No Nota    :</div>
+                            <div class="col-8"><span t-field="d.no_nota"/></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">Nama Pelanggan     :</div>
+                            <div class="col-8"><span t-field="d.name"/></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">Tanggal Masuk Pesawat :</div>
+                            <div class="col-8"><span t-field="d.tgl_masuk"/></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">Tanggal Pesawat Selesai   :</div>
+                            <div class="col-8"><span t-field="d.tgl_selesai"/></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">Jenis Pesawat   :</div>
+                            <div class="col-8"><span t-field="d.jenis_pswt"/></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">Onderdil Yang Dibutuhkan</div>  
+                        </div>
+                        <div class="row">
+                                <div class="col-4">Nama Onderdil</div>
+                                <div class="col-2">Jumlah Barang</div>
+                                <div class="col-2">Harga Satuan Barang</div>
+                                <div class="col-2">Subtotal</div>
+                        </div>
+                        <t t-foreach="d.detailonderdil_ids" t-as="ds1">
+                            <div class="row">
+                                <div class="col-4"><span t-field="ds1.barang_id.name"/></div>
+                                <div class="col-2"><span t-field="ds1.qty"/></div>
+                                <div class="col-2"><span t-field="ds1.harga_satuan_barang"/></div>
+                                <div class="col-2"><span t-field="ds1.subtotal"/></div>
+                            </div>
+                        </t>
+                        <div class="row">
+                            <div class="col-4">Jasa Yang Dibutuhkan</div>  
+                        </div>                
+                        <div class="row">
+                            <div class="col-4">Nama Jasa</div>
+                            <div class="col-2">Harga</div>
+                            <div class="col-2">Subtotal</div>
+                        </div>
+                        <t t-foreach="d.detailjasa_ids" t-as="ds2">
+                            <div class="row">
+                                <div class="col-4"><span t-field="ds2.pelayanan_id.name"/></div>
+                                <div class="col-2"><span t-field="ds2.harga_pelayanan"/></div>
+                                <div class="col-2"><span t-field="ds2.subtotal"/></div>
+                            </div>
+                        </t>
+                        <div class="row">
+                            <div class="col-4">Total Pembayaran   :</div>
+                            <div class="col-8"><span t-field="d.total_pembayaran"/></div>
+                        </div>
+                    </t>
+                </div>
+            </t>
+        </t>
+    </template>
+
+</odoo>
