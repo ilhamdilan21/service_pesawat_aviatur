@@ -35,22 +35,22 @@
                     <field name="gambar_pswt" widget="image" class="oe_avatar"/>   
                     <group nama='nota' string='Nota'>
                         <group>
-                            <field name="no_nota"/>
-                            <field name="name"/>  
-                            <field name="jenis_pswt"/>   
+                            <field name="no_nota" attrs="{'readonly' : [('state', '!=', 'draft')]}"/>
+                            <field name="name" attrs="{'readonly' : [('state', '!=', 'draft')]}"/>  
+                            <field name="jenis_pswt" attrs="{'readonly' : [('state', '!=', 'draft')]}"/>   
                                       
                         </group>
 
                         <group>
-                            <field name="tgl_masuk"/>
-                            <field name="tgl_selesai"/>
-                            <field name="total_pembayaran"/>     
+                            <field name="tgl_masuk" attrs="{'readonly' : [('state', '!=', 'draft')]}"/>
+                            <field name="tgl_selesai" attrs="{'readonly' : [('state', '!=', 'draft')]}"/>
+                            <field name="total_pembayaran" attrs="{'readonly' : [('state', '!=', 'draft')]}"/>     
                         </group>
 
                     </group>
 
                     <group name="barang" string="Barang">
-                        <field name="detailonderdil_ids">
+                        <field name="detailonderdil_ids" attrs="{'readonly' : [('state', '!=', 'draft')]}">
                             <tree editable='bottom'>
                                 <field name="barang_id"/>
                                 <field name="harga_satuan_barang"/>
@@ -61,7 +61,7 @@
                     </group>
 
                     <group name="jasa" string="Jasa">
-                        <field name="detailjasa_ids">
+                        <field name="detailjasa_ids" attrs="{'readonly' : [('state', '!=', 'draft')]}">
                             <tree editable='bottom'>
                                 <field name="pelayanan_id"/>
                                 <field name="harga_pelayanan"/>
