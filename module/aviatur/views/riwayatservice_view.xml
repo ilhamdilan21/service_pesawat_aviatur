@@ -27,8 +27,8 @@
                 <header>
                     <button name="action_confirm" type="object" string="Confirm" class="btn btn-primary" states="draft"/>
                     <button name="action_done" type="object" string="Done" class="btn btn-primary" states="confirm"/>
-                    <button name="action_cancel" type="object" string="Cancel" class="btn btn-warning" states="confirm" confirm="Anda yakin meng-cancel Quotation ini?"/>
-                    <button name="action_draft" type="object" string="Kembali ke Draft" class="btn btn-danger" states="cancelled" confirm="Anda yakin untuk mengedit Quotation ini?"/>
+                    <button name="action_cancel" type="object" string="Cancel" class="btn btn-warning" states="confirm" confirm="Cancel Service?"/>
+                    <button name="action_draft" type="object" string="Kembali ke Draft" class="btn btn-danger" states="cancelled" confirm="Edit Service?"/>
                     <field name="state" widget="statusbar" statusbar_visible="draft,confirm,done"/>
                 </header>
                 <sheet>
